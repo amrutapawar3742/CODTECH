@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat App</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+
+<div class="chat-container">
+    <h2>💬 Chat Rooms</h2>
+
+    <div class="join-area">
+        <input id="username" placeholder="Username">
+        <input id="room" placeholder="Room">
+        <button onclick="joinRoom()">Join</button>
+        <button onclick="leaveRoom()">Leave</button>
+    </div>
+
+    <div id="chat-box"></div>
+
+    <div class="input-area">
+        <input id="message" placeholder="Type a message">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    const socket = io();
+    let username = "";
+    let room = "";
+    const colors = {};
+
+    function getColor(name) {
+        if (!colors[name]) {
+            const palette = ["#667eea", "#ff6b6b", "#1abc9c", "#f39c12", "#9b59b6"];
+            colors[name] = palette[Object.keys(colors).length % palette.length];
+        }
+        return colors[name];
+    }
+
+    function joinRoom() {
+        username = document.getElementById("username").value;
+        room = document.getElementById("room").value;
+        if (username && room) {
+            document.getElementById("chat-box").innerHTML = "";
+            socket.emit("join", { username, room });
+        }
+    }
+
+    function sendMessage() {
+        const msg = document.getElementById("message").value;
+        if (msg && room) {
+            socket.emit("send_message", { username, room, message: msg });
+            document.getElementById("message").value = "";
+        }
+    }
+
+    function leaveRoom() {
+        if (room) {
+            socket.emit("leave", { username, room });
+            room = "";
+        }
+    }
+
+    socket.on("chat_message", data => {
+        const align = data.username === username ? "right" : "left";
+        const color = getColor(data.username);
+
+        document.getElementById("chat-box").innerHTML += `
+            <div class="bubble ${align}">
+                <span class="badge" style="background:${color}">${data.username}</span>
+                <p>${data.message}</p>
+                <small>${data.time}</small>
+            </div>
+        `;
+    });
+
+    socket.on("system_message", data => {
+        document.getElementById("chat-box").innerHTML += `
+            <div class="system">
+                ${data.text} • ${data.time}
+            </div>
+        `;
+    });
+</script>
+
+</body>
+</html>
