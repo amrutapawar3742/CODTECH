@@ -1,0 +1,75 @@
+body {
+    background: linear-gradient(135deg, #1f4037, #99f2c8);
+    font-family: "Segoe UI", Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card remains same */
+.card {
+    background: #ffffff;
+    padding: 30px;
+    width: 340px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #1f4037;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #16322b;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Links */
+a {
+    color: #1f4037;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 30px;
+    width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+canvas {
+    margin-top: 20px;
+}
+
+.logout {
+    display: inline-block;
+    margin-top: 20px;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+}
