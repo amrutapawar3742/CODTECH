@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# CODTECH
-=======
 # CODTECH
 
 # Internship Details
@@ -67,7 +64,7 @@ Technologies Used:
 JavaScript, Chrome Extension APIs, Backend (Flask / Node.js), Database
 
 # Notes
-All tasks were completed as per the given instructions
+All tasks were completed as per the given instructions and added images/screenshots in each folder in images section.
 Internet resources were used for learning and implementation
 Code is organized and structured for better understanding
 All tasks were submitted before the deadline
