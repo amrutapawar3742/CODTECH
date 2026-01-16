@@ -1,10 +1,13 @@
 # CODTECH
 
 # Internship Details
-Organization: CODTECH IT Solutions
-Internship Domain: Full Stack Development
-Internship Type: Online
 Intern Name: Amruta Madhukar Pawar
+
+Organization: CODTECH IT Solutions
+
+Internship Domain: Full Stack Development
+
+Internship Type: Online
 
 # Tasks Completed
 Task 1 – API Integration
