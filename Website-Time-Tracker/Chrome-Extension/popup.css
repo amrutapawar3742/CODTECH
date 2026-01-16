@@ -1,0 +1,16 @@
+body {
+    width: 220px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+h3 {
+    text-align: center;
+    color: #4b0082;
+}
+
+#stats p {
+    font-size: 13px;
+    margin: 5px 0;
+}
